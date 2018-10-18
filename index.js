@@ -16,9 +16,28 @@ app.post('/process_post', urlencodedParser, function (req, res) {
       password:req.body.password
    };
    console.log(response);
-   res.end(JSON.stringify(response));
+  // res.end(JSON.stringify(response));
+ //res.send("kudos you have done it...:) ");
+   if(req.body.email=="demo@demo.com" && req.body.password=="12345"){
+       res.send("kudos you have done it...:) ");
+     }
+   else{
+       res.send("mismatch");
+     }
+
+
+
+
 })
 
+//app.post('/process_auth', urlencodedParser, function(req,res){
+//  if(req.body.email=="demo@demo.com" && req.body.password=="12345"){
+//    res.sendFile("kudos you have done it...:) ");
+//  }
+//  else{
+//    res.sendFile("better luck next time...being nithin");
+//  }
+//})
 
 var server = app.listen(8081, function () {
    var host = server.address().address
