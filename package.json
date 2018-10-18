@@ -1,0 +1,23 @@
+{
+  "name": "form",
+  "version": "0.0.0",
+  "description": "form",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nithincsenitj/form_training.git"
+  },
+  "author": "nithin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nithincsenitj/form_training/issues"
+  },
+  "homepage": "https://github.com/nithincsenitj/form_training#readme"
+}

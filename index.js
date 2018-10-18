@@ -1,9 +1,10 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "htmlform.html" );
@@ -11,23 +12,33 @@ app.get('/', function (req, res) {
 
 app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
-   response = {
+   credentials = {
       email:req.body.email,
       password:req.body.password
    };
-   console.log(response);
+   console.log(credentials);
   // res.end(JSON.stringify(response));
- //res.send("kudos you have done it...:) ");
+
    if(req.body.email=="demo@demo.com" && req.body.password=="12345"){
-       res.send("kudos you have done it...:) ");
-     }
+
+       res.redirect("/home");
+      // res.send("kudos you have done it...:) ");
+}
    else{
-       res.send("mismatch");
+       res.redirect("/authfailed");
+
      }
+})
+
+
+app.get('/home', function(req,res){
+  res.sendFile( __dirname + "/" + "home.png" );
+})
 
 
 
-
+app.get('/authfailed', function(req,res){
+  res.sendFile( __dirname + "/" + "tryagain.png" );
 })
 
 //app.post('/process_auth', urlencodedParser, function(req,res){
